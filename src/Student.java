@@ -1,13 +1,9 @@
 public class Student extends Person {
     private String studentId;
-    private Course course = new Course();
+    private Course course;
 
     public String getStudentId() {
         return studentId;
-    }
-
-    public String getCourseName() {
-        return this.course.getCourseName();
     }
 
     public void setStudentId(String studentId) {
@@ -54,5 +50,13 @@ public class Student extends Person {
 
     public String getStudyResult() {
         return this.studentId + " " + this.getFirstName() + " " + this.getLastName() + " study " + this.course.getGradeDetail();
+    }
+
+    public Course getCourse() {
+        return course;
+    }
+
+    public void setCourse(Course course) {
+        this.course = course;
     }
 }

@@ -22,4 +22,7 @@ public interface IGradeCalculator {
     void setMinD(int score);//Set Minimum score for Grade D
 
     void setMinF(int score);//Set Minimum score for Grade F
+
+    GradingStrategy getGradingStrategy();
+    void setGradingStrategy(GradingStrategy gradingStrategy);
 }

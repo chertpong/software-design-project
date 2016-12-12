@@ -1,47 +1,13 @@
 public class Main2 {
     public static void main(String[] args) {
-        Student s1 = new Student();
-        s1.setFirstName("Alex");
-        s1.setLastName("Kristopher");
-        s1.setStudentId("0001");
-        s1.setCourseName("OOP");
-        s1.setHomeWorkScore("OOP", 20);
-        s1.setProjectScore("OOP", 20);
-        s1.setStudentMidtermScore("OOP", 22);
-        s1.setFinalExamScore("OOP", 24);
-
-        Student s2 = new Student();
-        s2.setFirstName("Chris");
-        s2.setLastName("Tesla");
-        s2.setStudentId("0002");
-        s2.setCourseName("OOP");
-        s2.setHomeWorkScore("OOP", 10);
-        s2.setProjectScore("OOP", 15);
-        s2.setStudentMidtermScore("OOP", 20);
-        s2.setFinalExamScore("OOP", 17);
-
-        Student s3 = new Student();
-        s3.setFirstName("David");
-        s3.setLastName("Bahmm");
-        s3.setStudentId("0003");
-        s3.setCourseName("OOP");
-        s3.setHomeWorkScore("OOP", 4);
-        s3.setProjectScore("OOP", 4);
-        s3.setStudentMidtermScore("OOP", 12);
-        s3.setFinalExamScore("OOP", 10);
-
-        Student s4 = new Student();
-        s4.setFirstName("Alex");
-        s4.setLastName("Kristopher");
-        s4.setStudentId("0004");
-        s4.setCourseName("OOP");
-        s4.setHomeWorkScore("OOP", 15);
-        s4.setProjectScore("OOP", 15);
-        s4.setStudentMidtermScore("OOP", 14);
-        s4.setFinalExamScore("OOP", 15);
-
+        Student s1 = StudentFactory.createStudent("Alex","Kristopher", "0001", "OOP", 20, 20, 22, 24);
+        Student s2 = StudentFactory.createStudent("Chris", "Tesla", "0002", "OOP", 10, 15, 20, 17);
+        Student s3 = StudentFactory.createStudent("David", "Bahmm", "0003", "OOP", 4, 4, 12, 10);
+        Student s4 = StudentFactory.createStudent("Alex", "Kristopher", "0004", "OOP", 15, 15, 14, 15);
 
         IGradeCalculator gradeCalculator = new GradeCalculatorByCriteria();
+        GradingStrategy greaterThanGradingStrategy = new GreaterThanGradingStrategy();
+        gradeCalculator.setGradingStrategy(greaterThanGradingStrategy);
         gradeCalculator.setMaxA(100);
         gradeCalculator.setMaxB(80);
         gradeCalculator.setMaxC(60);
